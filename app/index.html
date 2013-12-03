@@ -1,0 +1,99 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>webRTC test</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <section class="afold bg">
+            <div class="content">
+                <h1 class="outline">Does my browser support webRTC?</h1>
+                <p id="main-result" class="result outline"></p>
+            </div>
+        </section>
+
+        <div class="tests container">
+
+            <div id="results">
+                
+            </div>
+
+            <p id="user-agent-string"></p>
+
+            <footer class="disclaimer">
+                <p>This page was created by <a href="https://appear.in">appear.in</a>. It checks for a subset of the complete webRTC stack – more specifically for the parts required for <a href="https://appear.in">appear.in</a> to function. webRTC is a living standard, and the available codecs and APIs are prone to change.</p>
+            </footer>
+        </div>
+
+
+
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- build:js scripts/main.js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="scripts/main.js"></script>
+        <script src="/apiv2.js"></script>
+        <!-- endbuild -->
+        
+        <script>
+            API.isAppearinCompatible(function (data) {
+                data.results.forEach(function (test) {
+                    var div = document.createElement('div');
+                    div.className = test.id + ' test';
+                    var header = document.createElement('h3');
+                    header.innerHTML = test.name;
+                    var description = document.createElement('p');
+                    description.className = 'description';
+                    description.innerHTML = test.description;
+                    var result = document.createElement('p');
+                    result.className = 'result';
+                    if(test.isSupported) {
+                        result.className += ' success';
+                        result.innerHTML = 'Supported';
+                    }
+                    else {
+                        result.className += ' fail';
+                        result.innerHTML = 'Not supported';
+                    }
+                    
+                    div.appendChild(header);
+                    div.appendChild(description);
+                    div.appendChild(result);
+                    
+                    document.getElementById('results').appendChild(div);
+                });
+                
+                
+                if(data.isSupported) {
+                    $('.bg').addClass('success');
+                    $('#main-result').addClass('success').text('Yes!');
+                }
+                else {
+                    $('.bg').addClass('fail');
+                    $('#main-result').addClass('fail').text('Not yet :\(');
+                }
+                
+                $('#user-agent-string').text(navigator.userAgent);
+            });
+            
+            API.performTest('html5video', function (data) {
+            });
+            
+            API.getAvailableTests(function (data) {
+
+            });
+        </script>
+</body>
+</html>
