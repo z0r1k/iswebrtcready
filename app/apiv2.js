@@ -1,5 +1,5 @@
 
-document.write('<iframe src="http://localhost:8000/lite.html" frameborder="0" height="0" width="0" id="webrtc-compatability-tester"></iframe>');
+document.write('<iframe src="http://iswebrtcready.appear.in/lite.html" frameborder="0" height="0" width="0" id="webrtc-compatability-tester"></iframe>');
 document.close();
 
 (function () {

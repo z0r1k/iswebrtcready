@@ -25,12 +25,12 @@ body {
     box-sizing: border-box;
 }
 
-.afold.success {
+.afold.success {
     height: 400px;
     width: 400px;
 }
 
-.afold.fail {
+.afold.fail {
     width: 422px;
     height: 298px;
 }
