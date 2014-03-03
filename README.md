@@ -1,6 +1,6 @@
 # Appear.in API
 
-While we explore the possibilites and limitations present in what exists now, we only provide an API for our sub-project [iswebrtcready.appear.in](iswebrtcready.appear.in). With this API you can determine whether or not the client browser is capable of running appear.in, that is: *does the browser you run at this very moment support the technologies we (and other services like ours) require?*
+While we explore the possibilites and limitations present in what exists now, we only provide an API for our sub-project [iswebrtcready.appear.in](http://iswebrtcready.appear.in). With this API you can determine whether or not the client browser is capable of running appear.in, that is: *does the browser you run at this very moment support the technologies we (and other services like ours) require?*
 
 
 
